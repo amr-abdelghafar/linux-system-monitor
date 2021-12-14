@@ -20,6 +20,6 @@ float Processor::Utilization() {
     // differentiate: actual value minus the previous one
     float total_delta = total - prev_total;
     float idle_delta = idle - prev_idle;
-
-    return (total_delta - idle_delta) / total_delta;
+    float cpu_utilization = (total_delta - idle_delta) / total_delta;
+    return cpu_utilization;
 }

@@ -143,12 +143,12 @@ long LinuxParser::ActiveJiffies() {
 }
 
 // TODO: Read and return the number of idle jiffies for the system
-long LinuxParser::IdleJiffies() { 
+long LinuxParser::IdleJiffies() {
   long idle_jiffies = 0;
   vector<string> cpu_jiffies = LinuxParser::CpuUtilization();
-  idle_jiffies = stol(cpu_jiffies[LinuxParser::CPUStates::kIdle_]) + 
+  idle_jiffies = stol(cpu_jiffies[LinuxParser::CPUStates::kIdle_]) +
                  stol(cpu_jiffies[LinuxParser::CPUStates::kIOwait_]);
-          
+
   return idle_jiffies;
 }
 
@@ -200,7 +200,7 @@ int LinuxParser::RunningProcesses() {
 
 // TODO: Read and return the command associated with a process
 // REMOVE: [[maybe_unused]] once you define the function
-string LinuxParser::Command(int pid) { 
+string LinuxParser::Command(int pid) {
   string line;
   std::ifstream filestream(kProcDirectory + std::to_string(pid) + kCmdlineFilename);
   if (filestream.is_open()){
