@@ -6,7 +6,7 @@ using std::vector;
 // TODO: Return the aggregate CPU utilization
 float Processor::Utilization() {
 
-    long active = LinuxParser::Jiffies();
+    long active = LinuxParser::ActiveJiffies();
     long idle = LinuxParser::IdleJiffies();
     long long total = active + idle;
 
